@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import './random_words.dart';
+import './title_section.dart';
+import './button_section.dart';
+import './text_section.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,11 +13,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Startup Name Generator',
+      title: 'Flutter layout demo',
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primaryColor: Colors.black,
       ),
-      home: RandomWords(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter layout demo'),
+        ),
+        body: ListView(
+          children: [
+            Image.asset(
+              'images/lake.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection(context),
+            textSection,
+          ],
+        ),
+      ),
     );
   }
 }
